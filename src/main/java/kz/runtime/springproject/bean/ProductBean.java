@@ -14,15 +14,18 @@ import java.util.List;
 @Getter
 @Component
 public class ProductBean {
-    List<Product> productList = new ArrayList<>(Arrays.asList(
-            new Product("smartphones", "samsung", 255000),
+    Product products;
+    List<Product> productList = new ArrayList<>(Arrays.asList(new Product("smartphones", "samsung", 255000),
             new Product("smartphones", "oppo", 358000),
             new Product("tablet", "tablet", 485000),
-            new Product("laptop", "asus", 550000)));
+            new Product("laptop", "asus", 550000),
+            new Product("laptop", "lenovo", 655000)));
+
 
     public boolean add(String category, String product, Integer price) {
         if (!product.isEmpty() && !category.isEmpty() && (price > 0)) {
-            return productList.add(new Product(category, product, price));
+            products = new Product(product, category, price);
+            return productList.add(products);
         }
         return false;
     }
