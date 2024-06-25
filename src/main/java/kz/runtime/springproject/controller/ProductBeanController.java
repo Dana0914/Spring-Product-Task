@@ -18,24 +18,23 @@ public class ProductBeanController {
         this.productBean = productBean;
     }
 
-    @GetMapping(path = "/add", produces = "application/json")
+    @GetMapping(path = "/add_products", produces = "application/json")
     public Object addProductBean(@RequestParam(name = "category", required = false) String category,
                                 @RequestParam(name = "product", required = false) String product,
                                 @RequestParam(name = "price", required = false) Integer price)
     {
-        if (!product.isEmpty() && !category.isEmpty() && (price > 0)) {
-            productBean.add(category, product, price);
-            return "Product added to list";
+        if (productBean.add(category, product, price)) {
+            return "Product has been added successfully";
         }
         return "Product is empty";
+
     }
-    @GetMapping(path = "/list", produces = "application/json")
+
+    @GetMapping(path = "/get_list", produces = "application/json")
     public Object getProductList(@RequestParam(name = "category", required = false) String category) {
-        if (category != null) {
+        if (!category.isEmpty()) {
             return productBean.getProductByCategoryName(category);
         }
         return productBean.getProductList();
-
     }
-
 }
