@@ -15,8 +15,10 @@ import java.util.List;
 @Component
 public class ProductBean {
     Product products;
-    List<Product> productList = new ArrayList<>(Arrays.asList(new Product("smartphones", "samsung", 255000),
-            new Product("smartphones", "oppo", 358000),
+    List<Product> productList = new ArrayList<>(Arrays.asList(
+            new Product("smartphone", "samsung", 255000),
+            new Product("smartphone", "oppo", 358000),
+            new Product("smartphone", "redmi", 255000),
             new Product("tablet", "tablet", 485000),
             new Product("laptop", "asus", 550000),
             new Product("laptop", "lenovo", 655000)));
