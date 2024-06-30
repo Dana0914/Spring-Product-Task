@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns: th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ViewController.viewPage2()</title>
+</head>
+<body>
+
+<div th:each="humans : ${humans}"  style="border-bottom: 1px solid black">
+    <p>Name: <b th:text="${humans.getName()}"></b></p>
+    <p>Age: <b th:text="${humans.getAge()}"></b></p>
+</div>
+</body>
+</html>
