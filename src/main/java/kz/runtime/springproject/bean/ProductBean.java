@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -15,7 +14,7 @@ import java.util.List;
 @Component
 public class ProductBean {
     Product products;
-    List<Product> productList = new ArrayList<>(Arrays.asList(
+    List<Product> productList = new ArrayList<>(List.of(
             new Product("smartphone", "samsung", 255000),
             new Product("smartphone", "oppo", 358000),
             new Product("smartphone", "redmi", 255000),

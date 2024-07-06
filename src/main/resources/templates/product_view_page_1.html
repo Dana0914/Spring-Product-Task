@@ -13,10 +13,10 @@
 </form>
 
 
-<div th:each="products : ${product}"  style="border-bottom: 1px solid black">
-    <p>Category: <b th:text="${products.getCategory()}"></b></p>
-    <p>Name: <b th:text="${products.getName()}"></b></p>
-    <p>Price: <b th:text="${products.getPrice()}"></b></p>
+<div th:each="product : ${products}"  style="border-bottom: 1px solid black">
+    <p>Category: <b th:text="${product.getCategory()}"></b></p>
+    <p>Name: <b th:text="${product.getName()}"></b></p>
+    <p>Price: <b th:text="${product.getPrice()}"></b></p>
 </div>
 </body>
 </html>

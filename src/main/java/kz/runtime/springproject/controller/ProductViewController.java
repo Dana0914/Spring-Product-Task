@@ -26,12 +26,12 @@ public class ProductViewController {
         List<Product> collect = productBean.getProductList().stream()
                 .filter(product -> product.getCategory().equals(category)).
                 collect(Collectors.toList());
-        model.addAttribute("product", collect).addAttribute("category", category);
+        model.addAttribute("products", collect).addAttribute("category", category);
         return "product_view_page_1";
     }
     @GetMapping(path = "/getproducts")
     public String getProductList(Model model) {
-        productBean.getProductList().forEach(product -> model.addAttribute("product", product));
+        model.addAttribute("products", productBean.getProductList());
         return "product_view_page_1";
     }
 
