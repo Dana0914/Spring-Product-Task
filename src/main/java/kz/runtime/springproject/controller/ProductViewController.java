@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,9 +24,12 @@ public class ProductViewController {
     }
     @GetMapping(path = "/getcategory")
     public String getCategory(Model model, @RequestParam(name = "category", required = false) String category) {
-        List<Product> collect = productBean.getProductList().stream()
-                .filter(product -> product.getCategory().equals(category)).
-                collect(Collectors.toList());
+        List<Product> collect = new ArrayList<>();
+        for (Product product : productBean.getProductList()) {
+            if (product.getCategory().equals(category)) {
+                collect.add(product);
+            }
+        }
         model.addAttribute("products", collect).addAttribute("category", category);
         return "product_view_page_1";
     }

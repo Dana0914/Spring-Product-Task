@@ -5,9 +5,9 @@
     <title>Product list</title>
 </head>
 <body>
-<form th:action="@{/products/getcategory}" method="get" th:object="${product}">
+<form th:action="@{/products/getcategory}" method="get" th:object="${category}">
     <label>
-        <input type="text" id="category" th:name="category" placeholder="type category name" th:value="${category}" />
+        <input type="text" th:name="category" placeholder="type category name" th:value="${category}" />
     </label>
     <input type="submit" value="Filtrate"/>
 </form>
